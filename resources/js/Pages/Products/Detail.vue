@@ -37,7 +37,7 @@ defineProps(["product"]);
                                     v-for="rating in [0, 1, 2, 3, 4]"
                                     :key="rating"
                                     :class="[
-                                        4 > rating
+                                        product.averageRating > rating
                                             ? 'text-yellow-400'
                                             : 'text-gray-200',
                                         'h-5 w-5 flex-shrink-0',
@@ -48,7 +48,6 @@ defineProps(["product"]);
                         </div>
                     </div>
                     <button
-                        type="submit"
                         class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                         Add to cart
