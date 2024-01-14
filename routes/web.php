@@ -33,6 +33,8 @@ Route::get('/dashboard', function () {
 Route::resource('products', ProductController::class)
     ->only(['index'])
     ->middleware(['auth', 'verified']);
+Route::get('/products/{id}', [ProductController::class, 'detail'])->name('products.detail');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

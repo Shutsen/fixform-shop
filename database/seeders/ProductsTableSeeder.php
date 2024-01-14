@@ -17,14 +17,24 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Achel blond',
             'description' => 'De neus van deze hergiste tripel getuigt van een zeer fijne hoppigheid, gecombineerd met zoet-moutige en florale toetsen. In de mond maakt de smaak alle beloften van de geur waar na een zoete aanzet komen de bloemetjes en de hop. Na de volle smaak volgt een lange afdronk, waarin de bitterheid door fluweelzachte mouttoetsen wordt getemperd.',
             'price' => 2.00,
-            'image' => 'https://res.cloudinary.com/dzecfxbka/image/upload/v1/lekker-limburgs/achel-blond-33cl.png'
+            'image' => 'https://res.cloudinary.com/dzecfxbka/image/upload/v1/lekker-limburgs/achel-blond-33cl.png',
+            'averageRating' => 4.2,
         ]);
 
         Product::create([
             'name' => 'Ter Dolen donker',
             'description' => 'Ter Dolen Tripel is een echt volwaardig volmout tripel van koperblonde kleur, met twee soorten mout en twee soorten hop. Door bij het brouwen uitsluitend graan te gebruiken wordt de malsheid nog versterkt en heeft dit bier een rijke volmondigheid. Deze unieke tripel wordt hergist op de fles.',
             'price' => 1.90,
-            'image' => 'https://res.cloudinary.com/dzecfxbka/image/upload/v1/lekker-limburgs/ter-dolen-donker-33cl.png'
+            'image' => 'https://res.cloudinary.com/dzecfxbka/image/upload/v1/lekker-limburgs/ter-dolen-donker-33cl.png',
+            'averageRating' => 3.6,
+        ]);
+
+        Product::create([
+            'name' => 'Wilderen Cuvee Clarisse',
+            'description' => 'Wilderen Cuvée Clarisse is een robijnrood bier met een verwarmend alcoholgehalte Een verleidelijk aroma, met toetsen van zoethout en een vleugje karamel',
+            'price' => 2.10,
+            'image' => 'https://res.cloudinary.com/dzecfxbka/image/upload/v1/lekker-limburgs/wilderen-cuvee-clarisse-33cl.png',
+            'averageRating' => 3.8,
         ]);
     }
 }

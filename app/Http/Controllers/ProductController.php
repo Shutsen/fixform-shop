@@ -21,4 +21,13 @@ class ProductController extends Controller
             'products' => $products,
         ]);
     }
+
+    public function detail($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return Inertia::render('Products/Detail', [
+            'product' => $product,
+        ]);
+    }
 }
