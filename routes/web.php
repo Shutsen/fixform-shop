@@ -31,16 +31,15 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('cart', CartController::class)
-    ->only(['index'])
-    ->middleware(['auth', 'verified']);
-
 Route::resource('products', ProductController::class)
     ->only(['index'])
     ->middleware(['auth', 'verified']);
 Route::get('/products/{id}', [ProductController::class, 'detail'])->name('products.detail');
 
-
+Route::resource('cart', CartController::class)
+    ->only(['index', 'store', 'destroy'])
+    ->middleware(['auth', 'verified']);
+    
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
