@@ -46,6 +46,11 @@ async function handleChange(e, id) {
                     <label :for="`quantity-${item.id}`" class="sr-only"
                         >Quantity, {{ item.name }}</label
                     >
+                    <!-- Instead of using a select like below
+                    I would sandwich the quanity tag between a "-" and a "+" button
+                    Then, on press of those buttons, the quantity for that product would
+                    respectively decrease and increase by 1 -> my inertia/php skills are
+                    too limited to roll that out now though-->
                     <select
                         :id="`quantity-${item.id}`"
                         :name="`quantity-${item.id}`"
@@ -61,6 +66,10 @@ async function handleChange(e, id) {
                         <option value="6">6</option>
                         <option value="7">7</option>
                         <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
                     </select>
                     <Link
                         :href="route('cart.destroy', item.id)"
