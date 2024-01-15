@@ -37,7 +37,7 @@ Route::resource('products', ProductController::class)
 Route::get('/products/{id}', [ProductController::class, 'detail'])->name('products.detail');
 
 Route::resource('cart', CartController::class)
-    ->only(['index', 'store', 'destroy'])
+    ->only(['index', 'store', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
     
 Route::middleware('auth')->group(function () {

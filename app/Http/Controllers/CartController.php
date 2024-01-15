@@ -53,7 +53,16 @@ class CartController extends Controller
             ];
         }
         session()->put('cart', $cart);
-        session()->flash('success', 'Product added to cart.');
+        return redirect()->back();
+    }
+
+    public function update(Request $request): RedirectResponse
+    {
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+        }
         return redirect()->back();
     }
 

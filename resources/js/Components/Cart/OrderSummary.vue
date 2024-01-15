@@ -1,15 +1,15 @@
 <script setup>
 defineProps({
     subTotal: {
-        type: Number,
+        type: String,
         required: true,
     },
     taxAmount: {
-        type: Number,
+        type: String,
         required: true,
     },
     total: {
-        type: Number,
+        type: String,
         required: true,
     },
 });

@@ -1,7 +1,16 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import axios from "axios";
 
 const props = defineProps({ item: { type: Object } });
+
+async function handleChange(e, id) {
+    // not implemented since i'm unsure how to do this in php..
+    // await axios.put("/cart.update", {
+    //     id,
+    //     quantity: e.target.value,
+    // });
+}
 </script>
 
 <template>
@@ -41,6 +50,7 @@ const props = defineProps({ item: { type: Object } });
                         :id="`quantity-${item.id}`"
                         :name="`quantity-${item.id}`"
                         :value="item.quantity"
+                        :onchange="(e) => handleChange(e, item.id)"
                         class="block max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                     >
                         <option value="1">1</option>
