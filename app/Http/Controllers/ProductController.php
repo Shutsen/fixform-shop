@@ -27,9 +27,15 @@ class ProductController extends Controller
     public function detail($id)
     {
         $product = Product::findOrFail($id);
+        $cart = session()->get('cart', []);
+        $quantity = 0;
+        if(isset($cart[$id])) {
+            $quantity = $cart[$id]['quantity'];
+        }
 
         return Inertia::render('Products/Detail', [
             'product' => $product,
+            'quantity' => $quantity,
         ]);
     }
 }

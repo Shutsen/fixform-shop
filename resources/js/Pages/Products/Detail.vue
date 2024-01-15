@@ -4,7 +4,7 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 import { StarIcon } from "@heroicons/vue/20/solid";
 import { Head } from "@inertiajs/vue3";
 
-defineProps(["product"]);
+defineProps(["product", "quantity"]);
 </script>
 
 <template>
@@ -20,9 +20,15 @@ defineProps(["product"]);
                 />
                 <div>
                     <h1
-                        class="text-2xl font-bold mb-1 mt-8 md:mt-0 tracking-tight text-gray-900"
+                        class="flex justify-start items-center text-2xl font-bold mb-1 mt-8 md:mt-0 tracking-tight text-gray-900"
                     >
                         {{ product.name }}
+                        <div
+                            v-if="quantity > 0"
+                            class="ml-2 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center"
+                        >
+                            <span class="text-sm">{{ quantity }}</span>
+                        </div>
                     </h1>
                     <p>Price: &euro;{{ product.price }}</p>
                     <!-- Reviews -->
