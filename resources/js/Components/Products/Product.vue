@@ -1,6 +1,6 @@
 <script setup>
 import PrimaryButton from "@/Components/PrimaryButton.vue";
-const props = defineProps(["product"]);
+const props = defineProps(["product", "quantity"]);
 </script>
 
 <template>
@@ -27,6 +27,12 @@ const props = defineProps(["product"]);
                 <p class="text-sm font-medium text-gray-900">
                     &euro;{{ product.price }}
                 </p>
+            </div>
+            <div
+                v-if="quantity > 0"
+                class="absolute top-2 right-2 bg-blue-500 text-white w-6 h-6 rounded-full flex items-center justify-center"
+            >
+                <span class="text-sm">{{ quantity }}</span>
             </div>
         </div>
         <PrimaryButton

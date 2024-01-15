@@ -16,9 +16,11 @@ class ProductController extends Controller
     public function index(): Response
     {
         $products = Product::all();
+        $cart = session()->get('cart', []);
 
         return Inertia::render('Products/Index', [
             'products' => $products,
+            'cart' => $cart,
         ]);
     }
 

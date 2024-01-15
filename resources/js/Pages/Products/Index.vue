@@ -3,7 +3,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import Product from "@/Components/Products/Product.vue";
 import { Head } from "@inertiajs/vue3";
 
-defineProps(["products"]);
+defineProps(["products", "cart"]);
 </script>
 
 <template>
@@ -21,6 +21,7 @@ defineProps(["products"]);
                     v-for="product in products"
                     :key="product.id"
                     :product="product"
+                    :quantity="cart[product.id]?.quantity || 0"
                 />
             </div>
         </div>

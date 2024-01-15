@@ -16,7 +16,8 @@ class CartController extends Controller
 
          // Calculate the total price for each item in the cart
          foreach ($cart as &$item) {
-            $item['total_price'] = $item['quantity'] * $item['price'];
+            $itemPrice = $item['quantity'] * $item['price'];
+            $item['total_price'] = number_format($itemPrice, 2);
         }
         // Calculate the total price for the entire cart
         $subTotal = array_sum(array_column($cart, 'total_price'));

@@ -12,26 +12,27 @@ const props = defineProps({ item: { type: Object } });
                 class="h-24 w-16 rounded-lg object-cover object-center"
             />
         </div>
-        <div class="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
+        <div class="relative ml-4 flex flex-1 flex-col justify-center sm:ml-6">
             <div>
                 <div class="flex justify-between sm:grid sm:grid-cols-2">
                     <div class="pr-6">
                         <h3 class="text-sm">
-                            <a
-                                :href="item.href"
+                            <Link
+                                :href="`products/${item.id}`"
                                 class="font-medium text-gray-700 hover:text-gray-800"
-                                >{{ item.name }}</a
+                                >{{ item.name }}</Link
                             >
+                            <span class="ml-4">&euro;{{ item.price }}</span>
                         </h3>
                     </div>
 
                     <p class="text-right text-sm font-medium text-gray-900">
-                        &euro;{{ item.price }}
+                        &euro;{{ item.total_price }}
                     </p>
                 </div>
 
                 <div
-                    class="mt-4 flex items-center sm:absolute sm:left-1/2 sm:top-0 sm:mt-0 sm:block"
+                    class="mt-8 flex items-center sm:absolute sm:left-1/2 sm:top-0 sm:block"
                 >
                     <label :for="`quantity-${item.id}`" class="sr-only"
                         >Quantity, {{ item.name }}</label
