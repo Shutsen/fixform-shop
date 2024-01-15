@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from "vue";
+import ConfirmDialog from "@/Components/ConfirmDialog.vue";
+
 defineProps({
     subTotal: {
         type: String,
@@ -13,6 +16,8 @@ defineProps({
         required: true,
     },
 });
+
+const open = ref(false);
 </script>
 
 <template>
@@ -49,9 +54,11 @@ defineProps({
             <button
                 type="submit"
                 class="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                @click="open = true"
             >
                 Checkout
             </button>
+            <ConfirmDialog v-if="open" :close="() => (open = false)" />
         </div>
 
         <div class="mt-6 text-center text-sm text-gray-500">
