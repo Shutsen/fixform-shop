@@ -14,8 +14,25 @@ class CartController extends Controller
     {
         $cart = session()->get('cart', []);
 
+         // Calculate the total price for each item in the cart
+         foreach ($cart as &$item) {
+            $item['total_price'] = $item['quantity'] * $item['price'];
+        }
+        // Calculate the total price for the entire cart
+        $subTotal = array_sum(array_column($cart, 'total_price'));
+        $taxAmount = $subTotal * 0.21;
+        $total = $subTotal + $taxAmount;
+
+        // Round the values to 2 decimals
+        $subTotal = number_format($subTotal, 2);
+        $taxAmount = number_format($taxAmount, 2);
+        $total = number_format($total, 2);
+
         return Inertia::render('Cart/Index', [
             'cart' => $cart,
+            'subTotal' => $subTotal,
+            'taxAmount' => $taxAmount,
+            'total' => $total,
         ]);
     }
 

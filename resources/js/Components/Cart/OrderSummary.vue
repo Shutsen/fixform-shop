@@ -1,3 +1,20 @@
+<script setup>
+defineProps({
+    subTotal: {
+        type: Number,
+        required: true,
+    },
+    taxAmount: {
+        type: Number,
+        required: true,
+    },
+    total: {
+        type: Number,
+        required: true,
+    },
+});
+</script>
+
 <template>
     <div class="mt-10 sm:ml-32 sm:pl-6">
         <div class="rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:p-8">
@@ -7,18 +24,22 @@
                 <dl class="-my-4 divide-y divide-gray-200 text-sm">
                     <div class="flex items-center justify-between py-4">
                         <dt class="text-gray-600">Subtotal</dt>
-                        <dd class="font-medium text-gray-900">$99.00</dd>
+                        <dd class="font-medium text-gray-900">
+                            &euro;{{ subTotal }}
+                        </dd>
                     </div>
                     <div class="flex items-center justify-between py-4">
                         <dt class="text-gray-600">Tax (21%)</dt>
-                        <dd class="font-medium text-gray-900">$8.32</dd>
+                        <dd class="font-medium text-gray-900">
+                            &euro;{{ Math.round(taxAmount * 100) / 100 }}
+                        </dd>
                     </div>
                     <div class="flex items-center justify-between py-4">
                         <dt class="text-base font-medium text-gray-900">
                             Order total
                         </dt>
                         <dd class="text-base font-medium text-gray-900">
-                            $112.32
+                            &euro;{{ Math.round(total * 100) / 100 }}
                         </dd>
                     </div>
                 </dl>

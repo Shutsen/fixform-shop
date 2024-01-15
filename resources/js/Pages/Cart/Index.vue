@@ -6,7 +6,7 @@ import OrderSummary from "@/Components/Cart/OrderSummary.vue";
 import EmptyCart from "@/Components/Cart/EmptyCart.vue";
 import CartItem from "@/Components/Cart/CartItem.vue";
 
-defineProps(["cart"]);
+defineProps(["cart", "subTotal", "taxAmount", "total"]);
 </script>
 
 <template>
@@ -37,7 +37,11 @@ defineProps(["cart"]);
                         :item="item"
                     />
                 </ul>
-                <OrderSummary />
+                <OrderSummary
+                    :subTotal="subTotal"
+                    :taxAmount="taxAmount"
+                    :total="total"
+                />
             </template>
         </div>
     </AuthenticatedLayout>
