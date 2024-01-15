@@ -1,5 +1,6 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
 import { StarIcon } from "@heroicons/vue/20/solid";
 import { Head } from "@inertiajs/vue3";
 
@@ -47,11 +48,11 @@ defineProps(["product"]);
                             </div>
                         </div>
                     </div>
-                    <button
-                        class="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    <PrimaryButton
+                        :href="route('cart.store', { id: product.id })"
+                        method="post"
+                        >Add to cart</PrimaryButton
                     >
-                        Add to cart
-                    </button>
                     <p class="mt-10">{{ product.description }}</p>
                 </div>
             </div>
